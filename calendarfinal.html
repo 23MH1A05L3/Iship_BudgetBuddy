@@ -22,8 +22,8 @@
         height: 100vh;
         width: 100vw;
         display: flex;
-        justify-content: flex-start;
-      }
+         justify-content: flex-start; 
+      } 
 
       .reminder-dot::after {
         content: "";
@@ -64,8 +64,8 @@
         align-items: center;
         margin: 20px;
         align-self: flex-start;
-        border:3px solid blue;
-      }
+/*         border:3px solid blue;
+      } */
 
       @keyframes fadeInUp {
         0% {
@@ -102,13 +102,13 @@
         color: #e84da8;
         font-size: 22px;
       }
-
-      .calendar-dates {
+       .calendar-dates {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        text-align: center;
-        font-size: 24px;
-        flex-grow: 1;
+        grid-auto-rows: 60px; /* adjust height as needed */
+        gap: 16px;
+        margin-top: 20px;
+        font-size: 20px;
       }
 
       .date {
@@ -217,33 +217,33 @@
       } */
           .details {
         background: #ffffff;
-        padding: 25px 30px;
+        padding: 25px 48px;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         text-align: center; /* Center text inside */
-        max-width: 500px;
-        height: 450px;
+        max-width: 520px;
+        height: 490px;
         width: 100%;
-        border: 2px solid green;
-      }
-        .details-heading {
-        font-size: 28px;
+/*         border: 2px solid green; 
+      }  */
+       .details-heading {
+        font-size: 34px;
         font-weight: bold;
         margin-top: 40px;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         color: #333;
         }
 
         .details-item {
-          font-size: 18px;
-          margin: 12px 0;
+          font-size: 20px;
+          margin: 16px 0;
           color: #555;
         }
       .details-subheading {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: 600;
         margin-top: 30px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         color: #2a2a2a;
       }
 .details input,
