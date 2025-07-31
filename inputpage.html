@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script src="inputpage.js"></script>
+    <script src="inputPage7.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Budget Buddy - Input Page</title>
     <style>
@@ -175,15 +175,14 @@
       .addIncome,
       .addSavings {
         margin-top: 1rem;
+        /* margin-left:1rem; */
       }
 
       .submit-btn:hover,
       .save-btn-main:hover,
       .remove-btn:hover,
       .save-btn:hover {
-        background-color: #b8bbf1; /* Darker green on hover */
-        transform: scale(1.05); /* Slight zoom on hover */
-      
+        background-color: var(--hover);
       }
 
       .remove-btn:hover {
@@ -336,6 +335,9 @@
         text-decoration: none;
         font-size: 0.95rem;
       }
+      .reset-button{
+        margin-top:1rem;
+      }
     </style>
   </head>
   <body>
@@ -374,6 +376,17 @@
     </nav>
 
     <main>
+      <h1
+        style="
+          text-align: center;
+          font-size: 2rem;
+          color: #4c4cff;
+          margin-top: 2rem;
+        "
+      >
+        Track Your Budget - Input Your Income, Savings & Daily Expenses
+      </h1>
+
       <div class="card">
         <h2>Enter Income & Savings Goal</h2>
         <label for="income">Monthly Income (₹)</label>
@@ -391,7 +404,7 @@
           </button>
         </div>
         <div class="income-actions">
-          <button class="save-btn-main" onclick="resetFixedBudget()">
+          <button class="reset-button" onclick="resetFixedBudget()">
             Reset
           </button>
         </div>
