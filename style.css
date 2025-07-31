@@ -1,0 +1,565 @@
+/* Custom font style and weight */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background gradient with subtle grid */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg, #d4d9ff 0%, #e5cef0 50%, #dbdff2 100%);
+    z-index: -3;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: -2;
+}
+
+/* The light rounded gradient blocks bottom corners */
+.bg-blocks {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.bg-blocks div {
+    position: absolute;
+    border-radius: 1rem;
+    background: linear-gradient(180deg, #d4d9ff 0%, #e5cef0 100%);
+    opacity: 0.9;
+}
+
+.bg-blocks .bottom-left {
+    width: 160px;
+    height: 160px;
+    left: 2rem;
+    bottom: 4rem;
+}
+
+.bg-blocks .middle-left {
+    width: 120px;
+    height: 120px;
+    left: 6rem;
+    bottom: 12rem;
+}
+
+.bg-blocks .bottom-right {
+    width: 160px;
+    height: 160px;
+    right: 2rem;
+    bottom: 4rem;
+}
+
+.bg-blocks .middle-right {
+    width: 120px;
+    height: 120px;
+    right: 6rem;
+    bottom: 12rem;
+}
+
+/* Highlight style for HR Made text */
+.highlight {
+    background: linear-gradient(90deg, #8F94FB 0%, #A88AFF 100%);
+    padding: 0 0.35rem;
+    border-radius: 8px;
+    color: white;
+    transform: rotateY(20deg) ;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #000000;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #222222;
+}
+
+.btn-outline-purple {
+    background: #8f94fb;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.4rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-outline-purple:hover {
+    background: #7269f7;
+}
+
+/* Input style */
+input[type="email"] {
+    border: 1.5px solid #C7C7D9;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    padding: 0.5rem 1rem;
+    outline-offset: 2px;
+    width: 220px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+    color: #1a1a1a;
+}
+
+input[type="email"]::placeholder {
+    color: #A9A9C4;
+}
+
+input[type="email"]:focus {
+    border-color: #8F94FB;
+    box-shadow: 0 0 10px #8F94FB80;
+}
+
+/* Navigation styles */
+nav {
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 0 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-radius: 9999px;
+    max-width: 1080px;
+    margin: 1rem auto;
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-height: 56px;
+}
+
+.logo-img {
+  height: 40px;         /* Controls logo size */
+  max-width: 120px;     /* Prevents overly wide logos */
+  object-fit: contain;  /* Maintains aspect ratio */
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 0.4rem 0.25rem;
+    border-radius: 0.35rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #f6f6ff;
+    color: #4c4cff;
+}
+
+nav ul li .dropdown {
+    cursor: pointer;
+}
+
+nav ul li .dropdown-content {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    padding: 0.5rem 0;
+    min-width: 140px;
+    display: none;
+    flex-direction: column;
+    z-index: 20;
+}
+
+nav ul li:hover .dropdown-content {
+    display: flex;
+}
+
+nav ul li .dropdown-content a {
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    color: #333;
+}
+
+nav ul li .dropdown-content a:hover {
+    background: #e4e4ff;
+    color: #4c4cff;
+}
+
+/* Login / Signup buttons grouping */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-login {
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Main section styling */
+main {
+    text-align: center;
+    max-width: 720px;
+    margin: 3rem auto 4rem auto;
+    padding: 7rem 1rem;
+    perspective: 1000px;
+}
+
+main h1 {
+    font-weight: 700;
+    font-size: 2.75rem;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 1rem;
+    perspective: 1000px;
+}
+
+main p.description {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #666789;
+    margin-bottom: 2.5rem;
+}
+
+/* Email form container */
+form.email-form {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid #C7C7D9;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+form.email-form input[type="email"] {
+    border: none;
+    border-radius: 0;
+    width: 260px;
+    padding-left: 1rem;
+    border-right: 1.5px solid #C7C7D9;
+    font-weight: 500;
+    font-size: 0.9rem;
+    outline-offset: 0;
+}
+
+form.email-form input[type="email"]:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+form.email-form button {
+    padding: 0.5rem 1rem;
+    background: #8F94FB;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+form.email-form button:hover {
+    background: #7269f7;
+}
+
+/* Under form note */
+.email-note {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #8a8bb5;
+}
+
+/* Responsive text scaling */
+@media (min-width: 640px) {
+    main h1 {
+        font-size: 3.5rem;
+    }
+
+    main p.description {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 420px) {
+    nav {
+        max-width: 100vw;
+        margin: 0.5rem 0 1rem 0;
+        padding: 0 0.75rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    form.email-form input[type="email"] {
+        width: 160px;
+        font-size: 0.8rem;
+        padding-left: 0.75rem;
+    }
+
+    form.email-form button {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.75rem;
+    }
+}
+/* @keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+} */
+
+
+/* === CARD STYLES === */
+.card-container {
+  border: 2px solid rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto 3rem auto;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  word-wrap: break-word;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(33.33% - 20px);
+  min-width: 280px;
+  box-sizing: border-box;
+
+  animation: appear 0.8s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+/* .card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+} */
+.card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h2 {
+  margin-bottom: 14px;
+  font-size: 1.5rem;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+}
+.card:nth-child(1) {
+  animation-delay: 0s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+/* Add more as needed */
+
+
+/* === RESPONSIVE LAYOUT === */
+@media (min-width: 768px) {
+  .card-container {
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+
+  main h1 {
+    font-size: 3.5rem;
+  }
+
+  main p.description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+}
+footer {
+      background-color: #000;
+      color: #fff;
+      padding: 50px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+        background: linear-gradient(to right, #15d7f1, #e78eec);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: 0.3s ease;
+}
+    .footer-section ul li a:hover {
+    background-color: #00c853;
+    color: #000;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 8px;
+      width: 100%;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .newsletter button {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      background-color: #744879;
+      color: #000;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: linear-gradient(90deg, #d4d9ff 0%, #e5cef0 50%, #dbdff2 100%);
+    }
+
+    .social-links a {
+        text-decoration: none;
+        font-size: 16px;
+        margin-right: 15px;
+        background: linear-gradient(to right, #da21a0, #4017a9);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: 0.3s ease;
+    }
+
+.social-links a:hover {
+  -webkit-text-fill-color: #97bbaa;
+}
+
+    .footer-bottom {
+      text-align: center;
+      color: #aaa;
+      font-size: 13px;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .newsletter button, .newsletter input[type="email"] {
+        font-size: 14px;
+      }
+    }
