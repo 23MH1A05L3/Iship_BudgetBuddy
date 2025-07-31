@@ -955,15 +955,15 @@ datesEl.appendChild(dateEl);
     const reminderDate = new Date(reminder.date);
     const diffDays = Math.floor((reminderDate - today) / (1000 * 60 * 60 * 24));
 
-    // if (diffDays === 2) {
-    //   alert(`⏰ Reminder in 2 days: ${reminder.purpose} on ${reminder.date}`);
-    // }
-    // else if(diffDays == 1) {
-    //         alert(`⏰ Reminder in 1 days: ${reminder.purpose} on ${reminder.date}`);
-    // }
-    // else if(diffDays == 0) {
-    //         alert(`⏰ Reminder : ${reminder.purpose} on ${reminder.date}`);
-    // }
+    if (diffDays === 2) {
+      alert(`⏰ Reminder in 2 days: ${reminder.purpose} on ${reminder.date}`);
+    }
+    else if(diffDays == 1) {
+            alert(`⏰ Reminder in 1 days: ${reminder.purpose} on ${reminder.date}`);
+    }
+    else if(diffDays == 0) {
+            alert(`⏰ Reminder : ${reminder.purpose} on ${reminder.date}`);
+    }
     
   });
 })();
