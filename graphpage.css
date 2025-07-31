@@ -22,7 +22,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin:10px;
     margin-bottom: 25px;
     /* background-color: antiquewhite; */
 }
@@ -36,22 +35,50 @@ main {
     align-items: center;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: 1fr;
-    gap:20px;
+    /* gap:20px; */
     margin-bottom: 50px;
 }
 
 .boxes{
+    flex-shrink: 0;
     display: flex;
-    flex-wrap: wrap;
+    overflow: hidden;
     position: relative;
     align-items: center;
-    position: relative;
     width: 280px;
     height: 120px;
     border-radius: 5px;
-    transition: right 0.1s ease-out;
-    overflow: hidden;
     box-shadow: 0px 0px 1px 1px rgb(236, 233, 233)
+}
+
+
+
+.boxes1{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 26px;
+    width: 80px;
+    height: 120px;
+    background-color: rgb(182, 109, 221);
+    right: 0px;
+}
+
+.txtbox{
+    flex-direction: column;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    width:170px;
+    height: 100px;
+    color:white;
+    /* background-color: white; */
+    left: 0px;
+    font-weight: 600;
 }
 
 
@@ -95,32 +122,13 @@ main {
     background-color: white;
 }
 
-.boxes1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 26px;
-    width: 80px;
-    height: 120px;
-    background-color: rgb(182, 109, 221);
-    position: absolute;
-    right: 0px;
-}
+@media (max-width: 768px) {
 
-.txtbox{
-    flex-direction: column;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 21px;
-    width:170px;
-    height: 100px;
-    color:white;
-    /* background-color: white; */
-    left: 0px;
-    font-weight: 600;
+  .boxes {
+    width: 180px;
+    height: 90px;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -136,7 +144,7 @@ main {
     }
 
   .boxes {
-    width: 180px;
+    width: 230px;
     height: 90px;
   }
 
