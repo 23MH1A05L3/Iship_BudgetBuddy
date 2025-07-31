@@ -1,0 +1,130 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100%;
+    background: aliceblue;
+    background: linear-gradient(90deg, #d4d9ff 0%, #e5cef0 50%, #dbdff2 100%);
+    flex-direction: column;
+}
+
+.boxx{
+    /* background-color: black; */
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:10px;
+    margin-bottom: 25px;
+    /* background-color: antiquewhite; */
+}
+
+.grdbox{
+    /* margin-top: 80px; */
+    height: auto;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    gap:20px;
+}
+
+.boxes{
+    display: flex;
+    position: relative;
+    align-items: center;
+    position: relative;
+    width: 220px;
+    height: 100px;
+    border-radius: 5px;
+    transition: right 0.1s ease-out;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px 1px rgb(236, 233, 233)
+}
+
+
+.box2{
+    margin-top: 35px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border: 1/px solid black;
+}
+
+.graphbox{
+    width:400px;
+    height: 280px;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+}
+
+.doughbox{
+    width: fit-content;
+    height: 280px;
+    border-radius: 5px;
+    padding: 5px;
+    border: .6px solid rgba(178, 177, 177, .5);
+    box-shadow: 0px 1px 4px 2px rgba(178, 177, 177, .2);
+    background-color: white;
+}
+
+.boxes1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 26px;
+    width: 60px;
+    height: 110px;
+    background-color: rgb(182, 109, 221);
+    position: absolute;
+    right: 0px;
+}
+
+.txtbox{
+    flex-direction: column;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    width:170px;
+    height: 100px;
+    color:white;
+    /* background-color: white; */
+    left: 0px;
+    font-weight: 600;
+}
+
+@media (max-width:768px) {
+    .boxes{
+        width: 185px;
+        height: 80px;
+    }
+    
+    .box2{
+        gap:15px;
+    }
+}
+
+@media (max-width:425px){
+    .grdbox{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 50px;
+        margin-left: 20px;
+    }
+
+    .box2{
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+    }
+}
