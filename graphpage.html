@@ -30,7 +30,7 @@
         <div class="box2">
             <div class="graphbox">
                 <div class="card p-4 shadow-sm">
-                <canvas id="myChart" height="480" width="900"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
             </div>
             <div class="doughbox">
@@ -44,24 +44,30 @@
     <script>
         const ctx = document.getElementById('myChart').getContext('2d');
         new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [
-            'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun',
-            ],
-            datasets: [{
-            label: 'Budget ₹',
-            data: [
-                400, 300, 500, 450, 600, 350, 480, 520, 400, 610, 470, 530,
-            ],
-            borderColor: 'blue',
-            backgroundColor: 'rgba(173, 216, 230, 0.3)',
-            borderWidth: 1,
-            pointRadius: 2,
-            tension: 0.3
-            }]
-        }
-        });
+  type: 'line',
+  data: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+    datasets: [{
+      label: 'Budget ₹',
+      data: [400, 300, 500, 450, 600, 350, 480, 520, 400, 610, 470, 530],
+      borderColor: 'blue',
+      backgroundColor: 'rgba(173, 216, 230, 0.3)',
+      borderWidth: 1,
+      pointRadius: 2,
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, // ✅ Important for flexible sizing
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
 
 
       const dummyData = {
