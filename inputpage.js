@@ -68,22 +68,10 @@ function resetFixedBudget() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
 
   // Save reminder
-  // const date = document.getElementById("reminder-date").value;
-  // const purpose = document.getElementById("reminder-purpose").value;
-  // localStorage.setItem("reminderDate", date);
-  // localStorage.setItem("reminderPurpose", purpose);
   const date = document.getElementById("reminder-date").value;
-const purpose = document.getElementById("reminder-purpose").value.trim();
-
-if (date && purpose) {
-  let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
-
-  // Prevent duplicate entry for the same date
-  if (!reminders.some(r => r.date === date)) {
-    reminders.push({ date, purpose });
-    localStorage.setItem("reminders", JSON.stringify(reminders));
-  }
-}
+  const purpose = document.getElementById("reminder-purpose").value;
+  localStorage.setItem("reminderDate", date);
+  localStorage.setItem("reminderPurpose", purpose);
 
   calculateTotals();
 }
@@ -173,6 +161,52 @@ function updateSubcategories(selectElement, selectedSub = "") {
 //     </tr>
 //   `;
 // }
+
+function submitData() {
+  alert("Data submitted and displayed!");
+  saveToStorage();
+}
+
+// function calculateTotals() {
+//   const income = parseFloat(localStorage.getItem("income")) || 0;
+//   const savings = parseFloat(localStorage.getItem("savings")) || 0;
+//   const datedExpenses = JSON.parse(localStorage.getItem("datedExpenses")) || {};
+
+//   const tableBody = document.getElementById("records-body");
+//   tableBody.innerHTML = "";
+
+//   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+//   let totalExpensesTillToday = 0;
+
+//   const sortedDates = Object.keys(datedExpenses).sort();
+
+//   sortedDates.forEach(date => {
+//     const dailyExpenses = datedExpenses[date] || [];
+//     const dailyTotal = dailyExpenses.reduce((sum, e) => sum + (e.amount || 0), 0);
+
+//     // ✅ Add only if date is <= today
+//     if (date <= today) {
+//       totalExpensesTillToday += dailyTotal;
+//     }
+
+//     const row = document.createElement("tr");
+//     const isToday = date === today;
+
+//     row.innerHTML = `
+//       <td style="border: 1px solid #d1d5db; padding: 0.5rem">${date}</td>
+//       <td style="border: 1px solid #d1d5db; padding: 0.5rem">${isToday ? `₹${income}` : "-"}</td>
+//       <td style="border: 1px solid #d1d5db; padding: 0.5rem">${isToday ? `₹${savings}` : "-"}</td>
+//       <td style="border: 1px solid #d1d5db; padding: 0.5rem">₹${dailyTotal}</td>
+//       <td style="border: 1px solid #d1d5db; padding: 0.5rem">${isToday ? `₹${income - savings - totalExpensesTillToday}` : "-"}</td>
+//     `;
+
+//     tableBody.appendChild(row);
+//   });
+// }
+
+
+// ✅ Add Income
+
 function calculateTotals() {
   const income = parseFloat(localStorage.getItem("income")) || 0;
   const savings = parseFloat(localStorage.getItem("savings")) || 0;
@@ -191,7 +225,7 @@ function calculateTotals() {
     const dailyExpenses = datedExpenses[date] || [];
     const dailyTotal = dailyExpenses.reduce((sum, e) => sum + (e.amount || 0), 0);
     cumulativeExpense += dailyTotal;
-
+    
     const isToday = date === today;
     const balance = income - savings - cumulativeExpense;
 
@@ -208,42 +242,6 @@ function calculateTotals() {
 }
 
 
-function submitData() {
-  saveToStorage(); // Save regular input first
-
-  const today = new Date();
-  const isoDate = today.toISOString().split("T")[0];
-
-  const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-
-  const formattedExpenses = expenses.map(exp => ({
-    category: exp.main,
-    amount: exp.amount,
-    description: exp.sub // we store subcategory as description
-  }));
-
-  // Load existing budget records
-  const records = JSON.parse(localStorage.getItem("budgetRecords")) || [];
-
-  // Check if entry for today exists
-  const existing = records.find(r => r.date === isoDate);
-  if (existing) {
-    existing.expenses = formattedExpenses;
-  } else {
-    records.push({
-      date: isoDate,
-      expenses: formattedExpenses
-    });
-  }
-
-  localStorage.setItem("budgetRecords", JSON.stringify(records));
-
-  alert("✅ Data submitted and displayed!");
-  calculateTotals();
-}
-
-
-// ✅ Add Income
 function addIncomeAmount() {
   const addValue = prompt("Enter additional income amount (₹):");
   const currentIncome = parseFloat(localStorage.getItem("income")) || 0;
@@ -283,3 +281,6 @@ function reloadStoredData() {
 
   calculateTotals();
 }
+
+
+// on clicking reset all the details given in the page should reset ,,but that data in the local storage should
